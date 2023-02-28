@@ -1,334 +1,199 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<title>Kening' Research Gate</title>
-<!-- Stylesheets -->
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
-
-<!--Favicon-->
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="icon" href="images/favicon.png" type="image/x-icon">
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+	<meta charset="UTF-8">
+	<title>CV</title>
+    <!-- 加载Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- 加载Font Awesome -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.7.2/css/all.min.css">
+	<style type="text/css">
+        p {
+            margin:0 auto
+        } 
+		body {
+			font-family: "Times New Roman", "Times New Roman", "SimHei", sans-serif;
+			font-size: 16px;
+			line-height: 1;
+			margin: 0;
+			padding: 0;
+			background-color: #eceef1;
+			color: #414142;
+		}
+		.container {
+			width: 800px;
+			margin: 20px auto;
+			background-color: #ffffff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			padding: 30px;
+		}
+		h1 {
+			text-align: center;
+			font-size: 30px;
+			font-weight: bold;
+			color: #050505;
+			margin-bottom: 20px;
+		}
+		.profile {
+			display: flex;
+			align-items: center;
+			margin-bottom: 30px;
+		}
+		.profile img {
+			width: 180px;
+			height: 220px;
+			/*border-radius: 50%;*/
+            margin-left: 60px;
+			margin-right: 60px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		.profile h2 {
+			font-size: 24px;
+			font-weight: bold;
+			color: #333;
+			margin: 0;
+		}
+		.profile p {
+			font-size: 20px;
+			color: #141313;
+			margin: 10px 0;
+		}
+		.section {
+			margin-bottom: 30px;
+		}
+		h2 {
+			font-size: 20px;
+			font-weight: bold;
+			color: #333;
+			margin-bottom: 20px;
+		}
+		h3 {
+			font-size: 18px;
+			font-weight: bold;
+			color: #333;
+			margin-bottom: 10px;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		li {
+			font-size: 18px;
+			line-height: 1.5;
+			margin: 5px 0;
+			position: relative;
+			padding-left: 30px;
+		}
+		li::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 6px;
+			left: 0;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background-color: #333;
+		}
+		hr {
+			border: none;
+			height: 1px;
+			background-color: #CCC;
+			margin: 30px 0;
+		}
+	</style>
 </head>
-
 <body>
-
-<div class="page-wrapper default-version">
- 	
-    <!-- Preloader -->
-    <div class="preloader"></div>
-
-    <div class="page-background">
-        <div class="image-1"><img src="images/icons/shape/icon-1.png" alt=""></div>
-        <div class="image-7"><img src="images/icons/shape/icon-7.png" alt=""></div>
-        <canvas id="canvas"></canvas>
-    </div>
-    
-    <!-- Mobile menu -->
-    <div class="mobile-menu">
-        <div class="container">
-            <!--Nav Outer-->
-            <div class="nav-outer clearfix">
-                <div class="logo"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
-                <!-- Main Menu -->
-                <nav class="main-menu">
-                    <div class="navbar-header">
-                        <!-- Toggle Button -->      
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    
-                    <div class="navbar-collapse collapse scroll-nav clearfix">
-                        <ul class="navigation clearfix">
-                            
-                            <li class="current"><a href="#home">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#resume">Resume</a></li>
-
-                            <li><a href="#work">Works</a></li>
-                            <li><a href="#news">News</a></li>
-                            <li><a href="#contact">Contact</a></li>
-
-                         </ul>
-                    </div>
-                </nav>
-                <!-- Main Menu End-->                        
-            </div>
-            <!--Nav Outer End-->            
-        </div>
-    </div>
- 	
-    <div class="card-outer">
-        <div class="scroll-box">
-            <div class="container" data-animation-in="fadeInLeft" data-animation-out="fadeOutLeft">
-                <div class="card-wrapper">
-                    <div class="author-info" style="background-image:url(images/background/3.jpg)">
-                        <div class="image"><img src="images/resource/user.png" alt=""></div>
-                        <div class="author">
-                            <h3><br/>Kening ZHANG <font color="#000079" face="STXingkai">张珂宁</font></h3>
-                            <div class="designation">
-                               
-                                <div class="typing-title">
-                                    <p> <strong> Hi! I’m a Research Assistant in PolyU.</strong></p>
-                                </div>
-                                <span class="typed-title"></span>
-                            </div>
-                        </div>
-                        <div class="link-btn">
-                            <!--<a href="http://www.17sucai.com/" class="theme-btn btn-style-one">Download CV</a>-->
-                        </div>
-                        <ul class="social-icon-two">
-                            <!--<li><a href="#"><span class="fa fa-facebook"></span></a></li>-->
-                            <!--<li><a href="#"><span class="fa fa-twitter"></span></a></li>-->
-                            <!--<li><a href="#"><span class="fa fa-google-plus"></span></a></li>-->
-                            <!--<li><a href="#"><span class="fa fa-pinterest"></span></a></li>-->
-                        </ul>
-                    </div>
-                    <div class="card-inner-box">
-                        <header class="header wow fadeInLeft" data-wow-duration="1.5s">
-                            <ul class="main-menu">
-                                <li class="active home"><a class="logo" href="#home"><img src="images/logo.png" alt=""></a></li>
-                                <li><a href="#about"><i class="flaticon-social"></i>About</a></li>
-                                <li><a href="#resume"><i class="flaticon-curriculum"></i>Resume</a></li>
-                                <li><a href="#work"><i class="flaticon-tools"></i>Works</a></li>
-                                <li><a href="#blog"><i class="flaticon-blog"></i>News</a></li>
-                                <li><a href="#contact"><i class="flaticon-send-mail"></i>Contact</a></li>
-                            </ul>
-                        </header>
-
-                        <!-- card item -->
-                        <div class="card-home card-item active" id="home" style="background-image:url(images/background/1.jpg)">
-
-                            <div class="card-inner wow fadeInUp" data-wow-duration="2s">
-                                <div class="image"><img src="images/resource/user.png" alt=""></div>
-                                <div class="author">
-                                    <h3><br/>Kening ZHANG <font color="#000079" face="STXingkai">张珂宁</font></h3>
-                                    <div class="designation">
- 
-                                        <div class="typing-title">
-                                            <p> <strong>  Hi! I’m a Research Assistant in PolyU. </strong></p>
-                                        </div>
-                                        <span class="typed-title"></span>
-                                        
-                                    </div>
-                                </div>
-                                <div class="text">I'm currently a Research Assistant in the Department of Industrial and System Engineering, The Hong Kong Polytechnic University. Before that, I reveiced my Master of Science degree in Information Technology from Department of Computing, The Hong Kong Polytechnic University, and Bachelor of Engineering in Computer Science and Technology from School of Computer Science and Technology, Anhui University respectively. My interests include Edge Computing, Blockchain and Evolutionary Algorithm.</div>
-                                <div class="link-btn">
-                                    <!--<a href="#" class="theme-btn btn-style-one">Download CV</a>-->
-                                    <!--<a href="#" class="theme-btn btn-style-two">Hire Me</a>-->
-                                </div>
-                                <ul class="social-icon-two">
-                                    <!--<li><a href="#"><span class="fa fa-facebook"></span></a></li>-->
-                                    <!--<li><a href="#"><span class="fa fa-twitter"></span></a></li>-->
-                                    <!--<li><a href="#"><span class="fa fa-google-plus"></span></a></li>-->
-                                    <!--<li><a href="#"><span class="fa fa-pinterest"></span></a></li>-->
-                                    <!--<li><a href="#"><span class="fa fa-dribbble"></span></a></li>-->
-                                </ul>
-                            </div>
-                            
-                        </div>
-                        <!-- end item -->
-
-                        <!-- card item -->
-                        <div class="card-about card-item" id="about" style="background-image:url(images/background/2.jpg)">
-                            <div class="card-inner">
-                                <h4 class="title">About Me</h4>
-                                <div class="text">I'm currently a Research Assistant in the Department of Industrial and System Engineering, The Hong Kong Polytechnic University. Before that, I reveiced my Master of Science degree in Information Technology from Department of Computing, The Hong Kong Polytechnic University, and Bachelor of Engineering in Computer Science and Technology from School of Computer Science and Technology, Anhui University respectively. My interests include Edge Computing, Blockchain and Evolutionary Algorithm.</div>
-                                <div class="info-list">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <ul class="list-style-one">
-                                                <li><strong>Name:</strong>  Kening ZHANG</li>
-                                                <li><strong>Phone:</strong>  +852 6726 2160</li>
-                                                <li><strong>Address:</strong> Kowloon, Hong Kong</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <ul class="list-style-one">
-                                                <li><strong>Email:</strong>  kening.zhang@connect.polyu.hk</li>
-                                            </ul>
-                                        </div>
-                                        
-                                    </div>  
-                                    
-                                </div> 
-                                <h4 class="title">Research Interests</h4>
-                        
-                                   <div class="text">Edge Computing, Blockchain, Evolutionary Algoritym</div>   
-                                                             
-                            </div>
-                        </div>
-                        <!-- end item -->
-
-                        <!-- card item -->
-                        <div class="card-resume card-item" id="resume" style="background-image:url(images/background/2.jpg)">
-                            <div class="card-inner">
-                                <h4 class="title">Resume</h4>
-                                <div class="row clearfix">
-                                    <!--Column-->
-                                    <div class="timeline-column col-md-6 col-sm-12 col-xs-12">
-                                        <div class="inner">
-                                            <div class="col-header"><div class="icon-box"><div class="icon-inner"><div class="icon"><span class="flaticon-book"></span></div></div></div> <h2>Education</h2></div>
-                                            
-                                            <!--Timeline Block-->
-                                            <div class="timeline-block">
-                                                <div class="inner-box">
-                                                    <h4>Master of Science</h4>
-                                                    <div class="date"><span>2021-2022</span> / The Hong Kong Polytechnic University<br/> Supervised by Prof. Jiannong CAO and Dr. Shan JIANG</div>
-                                                    <div class="text">Information Technology<br/> Department of Computing </div>
-                                                </div>
-                                            </div>
-
-                                            <!--Timeline Block-->
-                                            <div class="timeline-block">
-                                                <div class="inner-box">
-                                                    <h4>Bachelor of Engineering</h4>
-                                                    <div class="date"><span>2017-2021</span> / Anhui University<br/> Supervised by Prof. Lei ZHANG</div>
-                                                    <div class="text">Computer Science and Technology <br/> School of Computer Science and Technology </div>
-                                                    <div class="text">Applied Psychology (Minor)<br/>Department of Philosophy</div>
-                                                </div>
-                                            </div>
-
-
-                                
-                                            
-                                        </div>
-                                    </div>
-
-                                    <!--Column-->
-                                    <div class="timeline-column col-md-6 col-sm-12 col-xs-12">
-                                        <div class="inner">
-                                            <div class="col-header"><div class="icon-box"><div class="icon-inner"><div class="icon"><span class="flaticon-case"></span></div></div></div> <h2>Experience</h2></div>
-                                            
-                                            <!--Timeline Block-->
-                                            <div class="timeline-block">
-                                                <div class="inner-box">
-                                                    <h4>Research Assistant (Full-Time)</h4>
-                                                    <div class="date"><span>10/2022-Present</span>  / The Hong Kong Polytechnic University <br/>Supervised by Prof. Carman K.M. Lee</div>
-                                                    <div class="text">Exceptur sint occaecat cupidatat non proident sunt culpa. </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="timeline-block">
-                                                <div class="inner-box">
-                                                    <h4>Research Assistant (Part-Time)</h4>
-                                                    <div class="date"><span>01/2021-07/2021 </span> / The Hong Kong Polytechnic University <br/>Supervised by Prof. Jiannong CAO</div>
-                                                    <div class="text">Exceptur sint occaecat cupidatat non proident sunt culpa. </div>
-                                                </div>
-                                            </div>
-
-                 
-
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end item -->
-                        <!-- card item -->
-                       
-                        <!-- end item -->
-                        <!-- card item -->
-                        <div class="card-projects card-item" id="work" style="background-image:url(images/background/2.jpg)">
-                            <div class="card-inner">
-                                <h4 class="title">Works</h4>
-                                
-                                
-                                    
-                                    <div class="text"><font color="black">A Reduced Mixed Representation Based Multi-Objective Evolutionary Algorithm for Large-Scale Overlapping Community Detection </font><br/><font color="grey">Yongkang Luo; Kening Zhang; Haipeng Yang; Feng Liu; Shuai Luo; Lei Zhang; Xiaoyan Sun, 2021 IEEE Congress on Evolutionary Computation (CEC), 2021, pp. 2435-2442.</font></div>
-                               <div class="row"> 
-                               </div>
-                            </div>
-                        </div>
-                        <!-- end item -->
-                        <!-- card item -->
-                        <div class="card-blog card-item" id="blog" style="background-image:url(images/background/2.jpg)">
-                            <div class="card-inner">
-                                <h4 class="title">News</h4>
-                                <div class="text"><font color="lightcoral ">08/2022 Completed the M.Sc Dissertation "Resource Allocation for Blockchain-Based Mobile Edge Computing With Dynamic Programming"</font></div>
-                            </div>
-                        </div>
-                        <!-- end item -->
-                        <!-- card item -->
-                        <div class="card-contact card-item" id="contact" style="background-image:url(images/background/2.jpg)">
-                            <div class="card-inner">
-                                <h3 class="title">Contact</h3>
-                                <h4>Keep In Touch</h4>
-                                <div class="row clearfix">
-                                    <div class="col-md-6">
-                                        <ul class="list-style-two">
-                                            <li><span class="icon flaticon-signs"></span>11 Yuk Choi Road, Hung Hom, Kowloon, Hong Kong</li>
-                                            <li><span class="icon flaticon-smartphone"></span>(+852) 6726 2160 <br/> (+86) 18805576296</li>
-                                            <li><span class="icon flaticon-note-1"></span>kening.zhang@connect.polyu.hk <br\> 1184652037@qq.com</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="map-section">
-                                            <div class="home-google-map">
-                                                <div 
-                                                    class="google-map" 
-                                                    id="contact-google-map" 
-                                                    data-map-lat="40.700843" 
-                                                    data-map-lng="-74.004012" 
-                                                    data-icon-path="images/icons/map-marker.png"
-                                                    data-map-title="Chester"
-                                                    data-map-zoom="11" >
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-           
-                            </div>
-                        </div>
-                        <!-- end item -->
-
-                    </div>
-                </div>
-                    
+	<div class="container">
+		<h1>Curriculum Vitae</h1>
+		<div class="profile">
+			<img src="Photo.jpg" alt="My">
+            <div>
+            <h2 align="center">Kening ZHANG (张珂宁)</h2>
+               <p align="center">Research Assistant</p>
+               <p align="center">The Hong Kong Polytechnic University</p>
+               <p align="center">Research Interests: Blockchain, Data Management, Reinforcement Learning</p>
+               <p align="center"><i class="fa fa-globe"></i> Web: <a href="https://kirnie-polyu.github.io/" target="blank">Personal Website</a></p>
+               <p align="center"><i class="fa fa-phone"></i> Phone：+852 67262160</p>
+               <p align="center"><i class="fa fa-envelope"></i> E-mail：kenzhang@polyu.edu.hk</p>
+               <p align="center"><i class="fas fa-home"></i> Office：DE407, Lui Che Woo Building, PolyU, Hung Hom, Kowloon, Hong Kong</p>
             </div>
         </div>
+        <hr>
+        <div class="section">
+            <h2>Education</h2>
+            <ul>
+            <li>
+            <h3>M.Sc</h3>
+                <p>Supervised by <a href="https://www4.comp.polyu.edu.hk/~shanjiang/" target="blank">Dr. Shan JIANG</a>
+                    and
+                    <a href="http://www4.comp.polyu.edu.hk/~csjcao/" target="blank">Prof. Jianong CAO</a></p>
+                <p>Department of Computing, The Hong Kong Polytechnic University</p>
+            </li>
+            <li>
+            <h3>B.Eng</h3>
+                <p>Supervised by <a href="http://imis.ahu.edu.cn/2020/0613/c17573a239685/page.htm" target="blank">Dr. Lei ZHANG</a></p>
+                <p>School of Computer Science and Technology, Anhui University</p>
+                <p>Minor Applied Psychology, Anhui University</p>
+            </li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Experiences</h2>
+            <ul>
+            <li>
+            <h3>Research Assistant</h3>
+                <p>Supervised by <a href="https://www.polyu.edu.hk/ise/people/academic-staff/carman-km-lee/" target="blank">Dr. Carman K.M. Lee</a></p>
+                <p>Department of Industrial Systems and Engineering</p>
+                <p>The Hong Kong Polytechnic University</p>
+            </li>
+            <li>
+            <h3>Research Assistant(Part-time)</h3>
+                <p>Supervised by <a href="http://www4.comp.polyu.edu.hk/~csjcao/" target="blank">Prof. Jianong CAO</a></p>
+                <p>Department of Computing</p>
+                <p>The Hong Kong Polytechnic University</p>
+            </li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Academic Publication</h2>
+            <ul>
+            <li>
+            <h3>Journal</h3>
+                <p>On-Chain and Off-Chain Data Management for Blockchain-Internet of Things (BIoT): A Multi-Agent
+                    Deep Reinforcement Learning Approach (Under Review)</p>
+            </li>
+            <li>
+            <h3>Conference</h3>
+                <p>"A Reduced Mixed Representation Based Multi-Objective Evolutionary Algorithm for Large-Scale Overlapping Community Detection,"
+                     2021 IEEE Congress on Evolutionary Computation (CEC), Kraków, Poland, 2021, pp. 2435-2442, doi: 10.1109/CEC45853.2021.9504894.</p>
+            </li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Achievements</h2>
+            <ul>
+            <li>
+            <h3>Honors & Awards</h3>
+                <p>The National Encouragement scholarship</p>
+                <p>The Honorable Mention in World Programmer Day Programmer Competition</p>
+                <p>The Third Prize in the 13th International Water Robot Competition</p>
+                <p>The Honorable Mention in School-level Mathematical Contest in Modeling in Anhui University </p>
+                <p>The Third Prize of Anhui Province in the Contemporary Undergraduate Mathematical Contest in Modeling</p>
+                <p>The Meritorious Award in Mathematical Contest in Modeling （≤8%） </p>
+                <p>The Scholarship of National University Student Self-improvement Star </p>
+                <p>The Second Prize of Academic Science and Technology Award</p>
+                <p>The Third-class Scholarship in excellent study</p> 
+            </li>
+            </ul>
+        </div>
+    </div>
             
-    </div>
-
-</div>
-<!--End pagewrapper-->
-
-
-<script src="js/jquery.js"></script> 
-
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="js/owl.js"></script>
-<script src="js/wow.js"></script>
-<script src="js/appear.js"></script>
-<script src="js/jquery.fancybox.js"></script>
-<script src="js/element-in-view.js"></script>
-<script src="js/knob.js"></script>
-<script src="js/validate.js"></script>
-<script src="js/mousemoveparallax.js"></script>
-<script src="js/pagenav.js"></script>
-<script src="js/jquery-type.js"></script>
-<script src="js/jquery.nicescroll.min.js"></script>
-<script src="js/particle-alone.js"></script>
-<script src="js/script.js"></script>
-
-<!--Google Map APi Key-->
-<script src="http://ditu.google.cn/maps/api/js?key=AIzaSyATY4Rxc8jNvDpsK8ZetC7JyN4PFVYGCGM"></script>
-<script src="js/gmaps.js"></script>
-<script src="js/map-script.js"></script>
-<!--End Google Map APi-->
-
 </body>
+
+<footer class="bg-dark text-light py-3">
+    <p style="text-align:right">Copyright &copy; 2023 - Kening ZHANG&nbsp&nbsp</p>
+</footer>
+
 </html>
