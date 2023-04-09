@@ -1,6 +1,39 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <link rel="shortcut icon" href="PolyU.png" type="image/x-icon" />
+<script type="text/javascript">
+	(function() {
+	window.onclick = function(event) {
+		var heart = document.createElement("b");
+		heart.onselectstart = new Function('event.returnValue=false');
+		document.body.appendChild(heart).innerHTML = "❤";
+		heart.style.cssText = "position: fixed;left:-100%;";
+		var f = 16, // 字体大小
+			x = event.clientX - f / 2, // 横坐标
+			y = event.clientY - f, // 纵坐标
+			c = randomColor(), // 随机颜色
+			a = 1, // 透明度
+			s = 1.2; // 放大缩小
+		var timer = setInterval(function() {
+			if (a <= 0) {
+				document.body.removeChild(heart);
+				clearInterval(timer);
+			} else {
+				heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" + c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" + s + ");";
+				y--;
+				a -= 0.016;
+				s += 0.002;
+			}
+		}, 12)
+	}
+	// 随机颜色
+	function randomColor() {
+
+		return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+
+	}
+}());
+</script>
 <head>
 	<meta charset="UTF-8">
 	<title>CV</title>
@@ -162,8 +195,12 @@
             <ul>
             <li>
             <h3>Journal</h3>
+			    <p>LTIDM-SB: Lightweight and Trustworthy Identity Management Architecture for Industrial Internet of Things (IIoT)
+					 Enabled by Stateless Blockchain (Under Writing)</p>
+			    <br />
                 <p>On-Chain and Off-Chain Data Management for Blockchain-Internet of Things (BIoT): A Multi-Agent
                     Deep Reinforcement Learning Approach (Under Review)</p>
+			    <br />
             </li>
             <li>
             <h3>Conference</h3>
@@ -194,7 +231,7 @@
 </body>
 
 <footer class="bg-dark text-light py-3">
-    <p style="text-align:right">Copyright &copy; 2023 - Kening ZHANG&nbsp&nbsp</p>
+    <p style="text-align:right">Copyright &copy; 2023 - Kening ZHANG, Last update Mar 2023&nbsp&nbsp</p>
 </footer>
 
 </html>
