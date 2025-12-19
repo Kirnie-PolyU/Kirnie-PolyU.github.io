@@ -589,3 +589,88 @@ hr {
     margin-bottom: 1rem !important;
   }
 }
+
+/* ==================== Additional Style Fixes ==================== */
+
+/* Sidebar - White background with academic border */
+aside, .sidebar, [class*="sidebar"], nav + div, aside > div {
+  background-color: white !important;
+}
+
+aside *, .sidebar *, [class*="sidebar"] * {
+  color: var(--academic-text) !important;
+}
+
+/* Tagline and subtitle text color fixes */
+p:contains("Exploring"), 
+[class*="subtitle"],
+[class*="tagline"],
+[class*="description"] {
+  color: var(--academic-text-light) !important;
+}
+
+/* Footer text color */
+footer, footer * {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+footer p, footer div, footer span {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Make visitor map section smaller and more compact */
+#visitor-map-section {
+  max-width: 900px !important;
+  padding: 1.5rem !important;
+  margin: 2rem auto !important;
+}
+
+#visitor-map-section h2 {
+  font-size: 1.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+#world-map-container {
+  height: 350px !important;
+}
+
+#visitor-stats {
+  padding: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.stat-item {
+  padding: 0.75rem !important;
+  min-width: 120px !important;
+}
+
+.stat-number {
+  font-size: 2rem !important;
+}
+
+.stat-label {
+  font-size: 0.85rem !important;
+}
+
+/* Specific overrides for React app elements */
+[class*="bg-gray"],
+[class*="bg-slate"] {
+  background-color: white !important;
+}
+
+/* Text color overrides for specific elements */
+[class*="text-gray"] {
+  color: var(--academic-text) !important;
+}
+
+[class*="text-slate"] {
+  color: var(--academic-text-light) !important;
+}
+
+/* Ensure all text in containers is visible */
+div[class*="container"] p,
+div[class*="container"] span,
+div[class*="container"] div {
+  color: var(--academic-text) !important;
+}
+
