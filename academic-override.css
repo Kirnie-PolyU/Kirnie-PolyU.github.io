@@ -25,7 +25,7 @@ body {
   font-size: 16px !important;
   line-height: 1.75 !important;
   color: var(--academic-text) !important;
-  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%) !important;
+  background: #ffffff !important;
 }
 
 /* Enhanced heading hierarchy */
@@ -516,21 +516,76 @@ hr {
   }
 }
 
-/* Dark mode support (optional) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --academic-primary: #93c5fd;
-    --academic-secondary: #60a5fa;
-    --academic-accent: #3b82f6;
-    --academic-text: #e5e7eb;
-    --academic-text-light: #d1d5db;
-    --academic-border: #4b5563;
-    --academic-bg-primary: #1f2937;
-    --academic-bg-secondary: #111827;
-    --academic-bg-tertiary: #374151;
+/* Visitor Map Section */
+#visitor-map-section {
+  margin: 4rem auto 2rem !important;
+  max-width: 1200px !important;
+  padding: 2rem !important;
+  background-color: var(--academic-bg-primary) !important;
+  border: 2px solid var(--academic-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+#visitor-map-section h2 {
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+  color: var(--academic-primary) !important;
+}
+
+#visitor-stats {
+  display: flex !important;
+  justify-content: space-around !important;
+  margin-bottom: 2rem !important;
+  padding: 1.5rem !important;
+  background-color: var(--academic-bg-secondary) !important;
+  border-radius: 6px !important;
+  flex-wrap: wrap !important;
+}
+
+.stat-item {
+  text-align: center !important;
+  padding: 1rem !important;
+  min-width: 150px !important;
+}
+
+.stat-number {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: var(--academic-accent) !important;
+  font-family: 'Inter', sans-serif !important;
+  display: block !important;
+}
+
+.stat-label {
+  font-size: 0.95rem !important;
+  color: var(--academic-text-light) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-top: 0.5rem !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+#world-map-container {
+  position: relative !important;
+  width: 100% !important;
+  height: 500px !important;
+  background-color: var(--academic-bg-secondary) !important;
+  border: 1px solid var(--academic-border) !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 768px) {
+  #world-map-container {
+    height: 350px !important;
   }
   
-  body {
-    background: linear-gradient(135deg, #111827 0%, #1f2937 100%) !important;
+  #visitor-stats {
+    flex-direction: column !important;
+  }
+  
+  .stat-item {
+    margin-bottom: 1rem !important;
   }
 }

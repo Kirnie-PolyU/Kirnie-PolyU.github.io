@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visitor Map Test</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <!-- Academic styles -->
+  <link rel="stylesheet" href="/assets/index-C6Id4bHB.css">
+  <link rel="stylesheet" href="/academic-override.css">
+  
+  <style>
+    body {
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 3px solid #1a365d;
+    }
+    
+    .header h1 {
+      font-family: 'Crimson Text', Georgia, serif;
+      color: #1a365d;
+      margin-bottom: 0.5rem;
+    }
+    
+    .header p {
+      color: #4a5568;
+      font-size: 1.1rem;
+    }
+    
+    .controls {
+      background-color: #f7fafc;
+      border: 2px solid #cbd5e0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .controls h3 {
+      margin-top: 0;
+      color: #2c5282;
+      font-size: 1.25rem;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    
+    .btn {
+      background-color: #2c5282;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+    
+    .btn:hover {
+      background-color: #1a365d;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(26, 54, 93, 0.2);
+    }
+    
+    .btn-danger {
+      background-color: #dc2626;
+    }
+    
+    .btn-danger:hover {
+      background-color: #b91c1c;
+    }
+    
+    .btn-success {
+      background-color: #059669;
+    }
+    
+    .btn-success:hover {
+      background-color: #047857;
+    }
+    
+    .info-box {
+      background-color: #edf2f7;
+      border-left: 4px solid #2b6cb0;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    
+    .info-box h4 {
+      margin-top: 0;
+      color: #1a365d;
+    }
+    
+    .info-box code {
+      background-color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+      color: #2c5282;
+      font-size: 0.9em;
+    }
+    
+    .status {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    
+    .status.success {
+      background-color: #d1fae5;
+      color: #065f46;
+    }
+    
+    .status.info {
+      background-color: #dbeafe;
+      color: #1e40af;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="header">
+    <h1>🗺️ Visitor Map Testing Interface</h1>
+    <p>Test and manage the visitor tracking system</p>
+  </div>
+  
+  <div class="controls">
+    <h3>🎮 Controls</h3>
+    <div class="button-group">
+      <button class="btn" onclick="showStats()">📊 Show Statistics</button>
+      <button class="btn" onclick="addTestVisitor()">➕ Add Test Visitor</button>
+      <button class="btn btn-success" onclick="simulateVisitors()">🔄 Simulate 10 Visitors</button>
+      <button class="btn btn-danger" onclick="resetAll()">🗑️ Reset All Data</button>
+    </div>
+  </div>
+  
+  <div class="info-box">
+    <h4>ℹ️ How It Works</h4>
+    <p><strong>Session-based tracking:</strong> Each browser session counts as one visit. Refreshing the page won't increment the counter.</p>
+    <p><strong>Data persistence:</strong> All data is stored in localStorage and persists across page reloads.</p>
+    <p><strong>Testing:</strong> Use the buttons above to test different scenarios.</p>
+    <p><strong>Console access:</strong> Open browser console and use:</p>
+    <ul>
+      <li><code>getVisitorStats()</code> - View current statistics</li>
+      <li><code>resetVisitorData()</code> - Clear all data</li>
+    </ul>
+  </div>
+  
+  <div id="status-message"></div>
+  
+  <!-- Visitor Map Section -->
+  <section id="visitor-map-section">
+    <h2>📍 Visitor Map & Statistics</h2>
+    
+    <!-- Statistics Dashboard -->
+    <div id="visitor-stats">
+      <div class="stat-item">
+        <span class="stat-number" id="total-visits">0</span>
+        <span class="stat-label">Total Visits</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="unique-visitors">0</span>
+        <span class="stat-label">Unique Visitors</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="countries-count">0</span>
+        <span class="stat-label">Countries</span>
+      </div>
+    </div>
+    
+    <!-- World Map Container -->
+    <div id="world-map-container"></div>
+    
+    <div style="margin-top: 1.5rem; text-align: center; font-size: 0.875rem; color: #718096;">
+      <p>🔒 All data stored locally in your browser • No server-side tracking • Privacy-friendly</p>
+    </div>
+  </section>
+
+  <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <!-- Visitor Tracking Script -->
+  <script src="visitor-tracker.js"></script>
+  
+  <!-- Test Functions -->
+  <script>
+    function showMessage(message, type = 'info') {
+      const statusDiv = document.getElementById('status-message');
+      statusDiv.innerHTML = `<div class="status ${type}">${message}</div>`;
+      setTimeout(() => {
+        statusDiv.innerHTML = '';
+      }, 5000);
+    }
+    
+    function showStats() {
+      const stats = getVisitorStats();
+      console.log('Visitor Statistics:', stats);
+      showMessage(`
+        📊 Total Visits: ${stats.totalVisits} | 
+        👥 Unique Visitors: ${stats.uniqueVisitors} | 
+        🌍 Countries: ${stats.countriesCount}
+      `, 'success');
+      alert(`Visitor Statistics:\n\nTotal Visits: ${stats.totalVisits}\nUnique Visitors: ${stats.uniqueVisitors}\nCountries: ${stats.countriesCount}\n\nCheck console for detailed data.`);
+    }
+    
+    async function addTestVisitor() {
+      showMessage('Adding test visitor...', 'info');
+      
+      // Get random test location
+      const testLocations = [
+        { city: 'Tokyo', country: 'Japan', code: 'JP', lat: 35.6762, lng: 139.6503 },
+        { city: 'London', country: 'United Kingdom', code: 'GB', lat: 51.5074, lng: -0.1278 },
+        { city: 'New York', country: 'United States', code: 'US', lat: 40.7128, lng: -74.0060 },
+        { city: 'Paris', country: 'France', code: 'FR', lat: 48.8566, lng: 2.3522 },
+        { city: 'Sydney', country: 'Australia', code: 'AU', lat: -33.8688, lng: 151.2093 },
+        { city: 'Dubai', country: 'UAE', code: 'AE', lat: 25.2048, lng: 55.2708 },
+        { city: 'Singapore', country: 'Singapore', code: 'SG', lat: 1.3521, lng: 103.8198 },
+        { city: 'Mumbai', country: 'India', code: 'IN', lat: 19.0760, lng: 72.8777 },
+        { city: 'São Paulo', country: 'Brazil', code: 'BR', lat: -23.5505, lng: -46.6333 },
+        { city: 'Toronto', country: 'Canada', code: 'CA', lat: 43.6532, lng: -79.3832 },
+        { city: 'Berlin', country: 'Germany', code: 'DE', lat: 52.5200, lng: 13.4050 },
+        { city: 'Hong Kong', country: 'Hong Kong', code: 'HK', lat: 22.3193, lng: 114.1694 },
+        { city: 'Moscow', country: 'Russia', code: 'RU', lat: 55.7558, lng: 37.6173 },
+        { city: 'Seoul', country: 'South Korea', code: 'KR', lat: 37.5665, lng: 126.9780 },
+        { city: 'Mexico City', country: 'Mexico', code: 'MX', lat: 19.4326, lng: -99.1332 }
+      ];
+      
+      const location = testLocations[Math.floor(Math.random() * testLocations.length)];
+      
+      // Add visitor manually
+      const tracker = window.visitorTracker;
+      const visitor = {
+        ip: `test-${Math.random().toString(36).substr(2, 9)}`,
+        city: location.city,
+        country: location.country,
+        countryCode: location.code,
+        latitude: location.lat,
+        longitude: location.lng,
+        timestamp: new Date().toISOString()
+      };
+      
+      // Check if unique
+      const isUnique = !tracker.visitorData.visitors.some(v => v.ip === visitor.ip);
+      
+      tracker.visitorData.visitors.push(visitor);
+      tracker.visitorData.totalVisits++;
+      if (isUnique) {
+        tracker.visitorData.uniqueVisitors++;
+      }
+      tracker.visitorData.countries.add(location.country);
+      
+      tracker.saveVisitorData();
+      tracker.updateStatistics();
+      tracker.displayVisitors();
+      
+      showMessage(`✅ Added visitor from ${location.city}, ${location.country}`, 'success');
+    }
+    
+    async function simulateVisitors() {
+      showMessage('Simulating 10 visitors...', 'info');
+      
+      for (let i = 0; i < 10; i++) {
+        await addTestVisitor();
+        await new Promise(resolve => setTimeout(resolve, 200));
+      }
+      
+      showMessage('✅ Successfully added 10 test visitors!', 'success');
+    }
+    
+    function resetAll() {
+      if (confirm('Are you sure you want to reset all visitor data? This cannot be undone.')) {
+        resetVisitorData();
+        showMessage('🗑️ All data has been reset', 'info');
+      }
+    }
+    
+    // Show initial message
+    setTimeout(() => {
+      showMessage('🎉 Visitor tracking system loaded successfully!', 'success');
+    }, 1000);
+  </script>
+  
+</body>
+</html>
