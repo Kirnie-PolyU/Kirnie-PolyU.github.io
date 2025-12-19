@@ -8,12 +8,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS for Visitor Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script type="module" crossorigin src="/assets/index-6U7VlNuQ.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-C6Id4bHB.css">
     <link rel="stylesheet" href="/academic-override.css">
   </head>
   <body>
     <div id="root"></div>
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    
+    <!-- Visitor Map Section -->
+    <section id="visitor-map-section">
+      <h2>📍 Visitor Map & Statistics</h2>
+      
+      <!-- Statistics Dashboard -->
+      <div id="visitor-stats">
+        <div class="stat-item">
+          <span class="stat-number" id="total-visits">0</span>
+          <span class="stat-label">Total Visits</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="unique-visitors">0</span>
+          <span class="stat-label">Unique Visitors</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="countries-count">0</span>
+          <span class="stat-label">Countries</span>
+        </div>
+      </div>
+      
+      <!-- World Map Container -->
+      <div id="world-map-container"></div>
+      
+      <div style="margin-top: 1.5rem; text-align: center; font-size: 0.875rem; color: #718096;">
+        <p>🔒 Privacy-friendly visitor tracking • Data stored locally in your browser</p>
+      </div>
+    </section>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Visitor Tracking Script -->
+    <script src="visitor-tracker.js"></script>
+    
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
   </body>
 </html>
