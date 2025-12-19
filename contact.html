@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Academic Profile</title>
+    <meta name="description" content="Contact information and visitor statistics" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS for Visitor Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" crossorigin href="/assets/index-C6Id4bHB.css">
+    <link rel="stylesheet" href="/academic-override.css">
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      
+      .contact-header {
+        background: linear-gradient(135deg, var(--academic-primary) 0%, var(--academic-secondary) 100%);
+        color: white;
+        padding: 3rem 2rem;
+        text-align: center;
+        border-bottom: 5px solid var(--academic-accent);
+      }
+      
+      .contact-header h1 {
+        color: white !important;
+        border-bottom: none !important;
+        margin-bottom: 1rem !important;
+      }
+      
+      .contact-header p {
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-size: 1.1rem;
+      }
+      
+      .contact-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      
+      .contact-info {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        border: 2px solid var(--academic-border);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        margin-bottom: 3rem;
+      }
+      
+      .contact-info h2 {
+        color: var(--academic-primary) !important;
+        margin-top: 0 !important;
+        font-size: 1.75rem !important;
+      }
+      
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin: 1.5rem 0;
+        padding: 1rem;
+        background: var(--academic-bg-secondary);
+        border-radius: 6px;
+        border-left: 4px solid var(--academic-accent);
+      }
+      
+      .contact-item svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 1rem;
+        color: var(--academic-accent);
+        flex-shrink: 0;
+      }
+      
+      .contact-item-content {
+        flex: 1;
+      }
+      
+      .contact-item-label {
+        font-weight: 600;
+        color: var(--academic-primary);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.25rem;
+      }
+      
+      .contact-item-value {
+        color: var(--academic-text);
+        font-size: 1.1rem;
+      }
+      
+      .contact-item-value a {
+        color: var(--academic-accent) !important;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s ease;
+      }
+      
+      .contact-item-value a:hover {
+        border-bottom-color: var(--academic-accent);
+      }
+      
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        color: var(--academic-accent) !important;
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 2rem;
+        padding: 0.5rem 1rem;
+        border: 2px solid var(--academic-border);
+        border-radius: 6px;
+        transition: all 0.2s ease;
+      }
+      
+      .back-link:hover {
+        background: var(--academic-bg-secondary);
+        border-color: var(--academic-accent);
+        transform: translateX(-4px);
+      }
+      
+      .back-link svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 0.5rem;
+      }
+      
+      /* Compact visitor map for contact page */
+      #visitor-map-section {
+        max-width: 100% !important;
+        padding: 1.5rem !important;
+        margin: 0 0 2rem 0 !important;
+      }
+      
+      #visitor-map-section h2 {
+        font-size: 1.5rem !important;
+        text-align: center !important;
+      }
+      
+      #world-map-container {
+        height: 400px !important;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="contact-header">
+      <h1>📬 Contact Information</h1>
+      <p>Get in touch with us or explore our visitor statistics</p>
+    </div>
+    
+    <div class="contact-container">
+      
+      <a href="/" class="back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Home
+      </a>
+      
+      <div class="contact-info">
+        <h2>How to Reach Us</h2>
+        
+        <div class="contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <div class="contact-item-content">
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">
+              <a href="mailto:contact@researchlab.com">contact@researchlab.com</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <div class="contact-item-content">
+            <div class="contact-item-label">Location</div>
+            <div class="contact-item-value">Research Lab</div>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+          </svg>
+          <div class="contact-item-content">
+            <div class="contact-item-label">Website</div>
+            <div class="contact-item-value">
+              <a href="https://kirnie-polyu.github.io" target="_blank">kirnie-polyu.github.io</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div class="contact-item-content">
+            <div class="contact-item-label">Office Hours</div>
+            <div class="contact-item-value">Monday - Friday, 9:00 AM - 5:00 PM</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Visitor Map Section -->
+      <section id="visitor-map-section">
+        <h2>🗺️ Visitor Statistics</h2>
+        
+        <!-- Statistics Dashboard -->
+        <div id="visitor-stats">
+          <div class="stat-item">
+            <span class="stat-number" id="total-visits">0</span>
+            <span class="stat-label">Total Visits</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="unique-visitors">0</span>
+            <span class="stat-label">Unique Visitors</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="countries-count">0</span>
+            <span class="stat-label">Countries</span>
+          </div>
+        </div>
+        
+        <!-- World Map Container -->
+        <div id="world-map-container"></div>
+        
+        <div style="margin-top: 1.5rem; text-align: center; font-size: 0.875rem; color: #718096;">
+          <p>🔒 Privacy-friendly tracking • All data stored locally in your browser</p>
+        </div>
+      </section>
+      
+    </div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Visitor Tracking Script -->
+    <script src="/visitor-tracker.js"></script>
+    
+  </body>
+</html>
