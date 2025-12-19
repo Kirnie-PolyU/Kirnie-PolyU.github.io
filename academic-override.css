@@ -726,3 +726,54 @@ footer.bg-\\[hsl\\(var\\(--sidebar-background\\)\\)\\] {
   background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%) !important;
 }
 
+
+/* ==================== CORRECT FIXES ==================== */
+
+/* Footer - WHITE BACKGROUND, not dark */
+footer,
+footer.bg-\[hsl\(var\(--sidebar-background\)\)\] {
+  background: white !important;
+  background-color: white !important;
+  color: var(--academic-text) !important;
+  border-top: 3px solid var(--academic-primary) !important;
+}
+
+footer *,
+footer p,
+footer div,
+footer span {
+  color: var(--academic-text) !important;
+  background: transparent !important;
+}
+
+footer a {
+  color: var(--academic-accent) !important;
+}
+
+/* Subtitle/Description text - Should be DARK on light background */
+.bg-\[hsl\(var\(--sidebar-background\)\)\] p,
+div[class*="py-20"] p,
+div[class*="text-center"] p {
+  color: var(--academic-text) !important;
+}
+
+/* Hero section - If it has dark background, text should be visible */
+div[class*="py-20"].bg-\[hsl\(var\(--sidebar-background\)\)\] {
+  background: white !important;
+}
+
+div[class*="py-20"].bg-\[hsl\(var\(--sidebar-background\)\)\] h1 {
+  color: var(--academic-primary) !important;
+}
+
+div[class*="py-20"].bg-\[hsl\(var\(--sidebar-background\)\)\] p {
+  color: var(--academic-text-light) !important;
+}
+
+/* Override any white text in hero sections */
+div[class*="text-\[hsl"],
+span[class*="text-\[hsl"],
+p[class*="text-\[hsl"] {
+  color: var(--academic-text) !important;
+}
+
