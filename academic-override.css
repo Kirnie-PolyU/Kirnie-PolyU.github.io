@@ -674,3 +674,55 @@ div[class*="container"] div {
   color: var(--academic-text) !important;
 }
 
+
+/* ==================== CRITICAL OVERRIDES - Footer Text ==================== */
+
+/* Force footer text to be white - Ultra specific selectors */
+footer, 
+footer *,
+footer p,
+footer div,
+footer span,
+footer a,
+[class*="footer"],
+[class*="footer"] *,
+body > footer,
+body > div > footer,
+footer.bg-\\[hsl\\(var\\(--sidebar-background\\)\\)\\],
+footer.bg-\\[hsl\\(var\\(--sidebar-background\\)\\)\\] *,
+div[class*="container"] footer *,
+div[class*="py-"] footer * {
+  color: white !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Footer links specifically */
+footer a,
+footer a *,
+[class*="footer"] a {
+  color: white !important;
+  text-decoration: underline !important;
+}
+
+/* Subtitle/tagline text fixes */
+[class*="text-center"] p,
+[class*="py-20"] p,
+[class*="py-20"] h1 + p,
+div[class*="container"] > div[class*="text-center"] p {
+  color: white !important;
+}
+
+/* Hero section text */
+div[class*="bg-\\[hsl"] {
+  color: white !important;
+}
+
+div[class*="bg-\\[hsl"] * {
+  color: white !important;
+}
+
+/* Catch-all for any remaining dark text in footer */
+footer.bg-\\[hsl\\(var\\(--sidebar-background\\)\\)\\] {
+  background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%) !important;
+}
+

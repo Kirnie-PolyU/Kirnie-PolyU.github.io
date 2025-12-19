@@ -46,7 +46,7 @@
     
     // Create Contact link
     const contactLink = document.createElement('a');
-    contactLink.href = '/contact.html';
+    contactLink.href = '/contact';
     contactLink.textContent = '📬 Contact';
     contactLink.style.cssText = `
       color: inherit;
