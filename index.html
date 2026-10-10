@@ -117,6 +117,7 @@
     ul.edu li { padding: 7px 0; border-bottom: 1px dashed var(--hairline); }
     ul.edu li:last-child { border-bottom: none; }
     .edu .deg { font-weight: 700; }
+    .edu .advisor { color: var(--muted); font-size: .95rem; }
 
     /* ---------- Publications ---------- */
     .pub { display: flex; gap: 18px; margin-bottom: 20px; align-items: flex-start; }
@@ -178,6 +179,8 @@
     <a href="#about">About</a>
     <a href="#news">News</a>
     <a href="#research">Research</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
     <a href="#publications">Publications</a>
     <a href="#teaching">Teaching</a>
     <a href="#students">Prospective Students</a>
@@ -208,10 +211,10 @@
         <img src="Photo.jpg" alt="Photo of Kening Zhang">
         <div class="side-links">
           <div class="row"><span class="label">Email</span><a href="mailto:keningcs.zhang@connect.polyu.hk">keningcs.zhang@connect.polyu.hk</a></div>
-          <!-- ✏️ TODO: 有了学术主页链接后,把下面的 "(to be added)" 换成 <a href="链接">Google Scholar</a> 等 -->
-          <div class="row"><span class="label">Google Scholar</span><span class="todo-note">link to be added</span></div>
-          <div class="row"><span class="label">ORCID</span><span class="todo-note">link to be added</span></div>
-          <div class="row"><span class="label">LinkedIn</span><span class="todo-note">link to be added</span></div>
+          <div class="row"><span class="label">Google Scholar</span><a href="https://scholar.google.com/citations?user=r0n1x20AAAAJ&amp;hl=en" target="_blank" rel="noopener">Profile</a></div>
+          <div class="row"><span class="label">ORCID</span><a href="https://orcid.org/0009-0006-2680-5247" target="_blank" rel="noopener">0009-0006-2680-5247</a></div>
+          <div class="row"><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/%E7%8F%82%E5%AE%81-%E5%BC%A0-a8125a1b3/" target="_blank" rel="noopener">Profile</a></div>
+          <!-- ✏️ TODO: 有 CV 文件后,把下面换成 <a href="cv.pdf">Curriculum Vitae</a> -->
           <div class="row"><span class="label">CV</span><span class="todo-note">to be added</span></div>
         </div>
       </div>
@@ -282,11 +285,25 @@
     <h2>Education</h2>
     <ul class="edu">
       <li><span class="deg">Ph.D.</span> — Department of Industrial and Systems Engineering,
-        The Hong Kong Polytechnic University, Hong Kong</li>
+        The Hong Kong Polytechnic University, Hong Kong<br>
+        <span class="advisor">Advisor: Prof. Carman K. M. Lee</span></li>
+      <li><span class="deg">Visiting Ph.D. Student</span> — School of Computing and Information Systems,
+        The University of Melbourne, Australia<br>
+        <span class="advisor">Advisor: Prof. Rajkumar Buyya</span></li>
       <li><span class="deg">M.Sc.</span> — Department of Computing,
-        The Hong Kong Polytechnic University, Hong Kong</li>
+        The Hong Kong Polytechnic University, Hong Kong<br>
+        <span class="advisor">Advisor: Prof. Jiannong Cao</span></li>
       <li><span class="deg">B.Eng.</span> — School of Computer Science and Technology,
         Anhui University, Hefei, China</li>
+    </ul>
+  </section>
+
+  <!-- ================= Work Experience ================= -->
+  <section id="experience">
+    <h2>Work Experience</h2>
+    <ul class="edu">
+      <li><span class="deg">Research Assistant</span> — The Hong Kong Polytechnic University, Hong Kong</li>
+      <li><span class="deg">Senior Project Assistant</span> — The Hang Seng University of Hong Kong, Hong Kong</li>
     </ul>
   </section>
 
