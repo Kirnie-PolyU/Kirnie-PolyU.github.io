@@ -38,6 +38,8 @@
     a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
+    ::selection { background: #d7e5f4; }
+
     .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
     /* ---------- Navigation ---------- */
@@ -73,7 +75,7 @@
     section { padding: 30px 0 6px; scroll-margin-top: 64px; }
     h2 {
       font-size: 1.28rem; font-weight: 700; letter-spacing: .04em;
-      font-variant: small-caps; color: var(--text);
+      font-variant: small-caps; color: var(--accent);
       border-bottom: 1px solid var(--hairline);
       padding-bottom: 6px; margin: 0 0 18px;
     }
@@ -97,11 +99,19 @@
 
     /* ---------- News ---------- */
     ul.news { list-style: none; margin: 0; padding: 0; }
-    ul.news li { padding: 5px 0 5px 118px; position: relative; }
+    ul.news li { padding: 5px 0 5px 142px; position: relative; }
     ul.news .date {
-      position: absolute; left: 0; top: 5px; width: 104px; text-align: right;
-      color: var(--muted); font-family: "Inter", Arial, sans-serif; font-size: .82rem; font-weight: 500;
+      position: absolute; left: 0; top: 6px; width: 104px; text-align: right;
+      color: var(--accent); font-family: "Inter", Arial, sans-serif; font-size: .82rem; font-weight: 600;
     }
+    ul.news .nicon {
+      position: absolute; left: 116px; top: 7px;
+      width: 16px; height: 16px; border-radius: 50%;
+      font: 700 10.5px/16px "Inter", Arial, sans-serif; text-align: center; color: #fff;
+    }
+    ul.news .nicon.hot { background: #b42318; }
+    ul.news .nicon.paper { background: var(--accent); }
+    ul.news li.hot { color: #a12622; font-weight: 600; }
 
     /* ---------- Research interests ---------- */
     .interests { margin: 0; padding: 0; list-style: none; }
@@ -120,7 +130,8 @@
     .edu .advisor { color: var(--muted); font-size: .95rem; }
 
     /* ---------- Publications ---------- */
-    .pub { display: flex; gap: 18px; margin-bottom: 20px; align-items: flex-start; }
+    .pub { display: flex; gap: 18px; margin-bottom: 8px; padding: 8px 10px; margin-left: -10px; margin-right: -10px; align-items: flex-start; border-radius: 8px; transition: background .15s ease; }
+    .pub:hover { background: var(--paper-alt); }
     .pub .thumb { flex: none; width: 176px; }
     .pub .thumb img {
       width: 100%; display: block; border: 1px solid var(--hairline); border-radius: 3px;
@@ -128,12 +139,15 @@
     .pub .body { flex: 1; }
     .pub .ptitle { font-weight: 700; }
     .pub .authors { margin-top: 2px; }
+    .pub .authors b { color: var(--accent); }
     .pub .venue { margin-top: 2px; font-style: italic; color: #3a3f45; }
     .pub .tag {
       display: inline-block; margin-right: 8px; padding: 1px 7px; vertical-align: 2px;
       background: var(--tag-bg); color: var(--muted); border-radius: 3px;
       font-family: "Inter", Arial, sans-serif; font-size: .74rem; font-weight: 600;
     }
+    .pub .tag.j { background: var(--accent); color: #fff; }
+    .pub .tag.c { background: #0f766e; color: #fff; }
     .pub .links { margin-top: 4px; font-size: .9rem; }
     .pub-note { color: var(--muted); font-size: .88rem; margin-top: 4px; }
 
@@ -148,7 +162,7 @@
     /* ---------- Contact ---------- */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .contact-grid h3 {
-      margin: 0 0 6px; font-size: 1rem; font-family: "Inter", Arial, sans-serif; font-weight: 600;
+      margin: 0 0 6px; font-size: 1rem; font-family: "Inter", Arial, sans-serif; font-weight: 600; color: var(--accent);
     }
     .contact-grid p { margin: 0; }
 
@@ -165,6 +179,7 @@
       .side-photo { max-width: 300px; }
       ul.news li { padding-left: 0; padding-top: 3px; }
       ul.news .date { position: static; display: block; width: auto; text-align: left; margin-bottom: 1px; }
+      ul.news .nicon { position: static; display: inline-block; margin-right: 6px; }
       .pub { flex-direction: column; }
       .pub .thumb { width: 100%; max-width: 420px; }
       .contact-grid { grid-template-columns: 1fr; }
@@ -253,12 +268,21 @@
     <h2>News</h2>
     <ul class="news">
       <!-- ✏️ TODO: 教职定下来后,替换下面第一条的占位内容 -->
-      <li><span class="date">Oct 2026</span>
+      <li class="hot"><span class="date">Oct 2026</span><span class="nicon hot" title="Highlight">!</span>
         I have accepted a faculty offer and will join <strong>[University Name]</strong>
         as <strong>[Position Title]</strong> starting <strong>[Month, Year]</strong>.
       </li>
-      <li><span class="date">Oct 2026</span>
+      <li><span class="date">Oct 2026</span><span class="nicon paper" title="Update">N</span>
         Personal academic homepage redesigned.
+      </li>
+      <li><span class="date">2025</span><span class="nicon paper" title="Conference paper">C</span>
+        Our paper “Privacy-Preserving and Resilient Skyline Querying in Sharded Blockchain
+        Networks for Web 3.0” was accepted by <em>DASFAA 2025</em>.
+      </li>
+      <li><span class="date">2024</span><span class="nicon paper" title="Journal paper">J</span>
+        Our paper “On-Chain and Off-Chain Data Management for Blockchain–Internet of Things:
+        A Multi-Agent Deep Reinforcement Learning Approach” was published in the
+        <em>Journal of Grid Computing</em>.
       </li>
     </ul>
   </section>
@@ -314,7 +338,7 @@
     <div class="pub">
       <div class="thumb"><img src="Images/J1.png" alt="Overview of J1"></div>
       <div class="body">
-        <div class="ptitle"><span class="tag">J1</span>Variational Quantum Reinforcement Learning for Joint Resource Allocation of Blockchain-based Vehicular Edge Computing and Quantum Internet</div>
+        <div class="ptitle"><span class="tag j">J1</span>Variational Quantum Reinforcement Learning for Joint Resource Allocation of Blockchain-based Vehicular Edge Computing and Quantum Internet</div>
         <div class="authors"><b>Kening Zhang</b>, Carman K. M. Lee, Yung Po Tsang*, Chun Ho Wu</div>
         <div class="venue">IEEE Transactions on Vehicular Technology</div>
       </div>
@@ -323,7 +347,7 @@
     <div class="pub">
       <div class="thumb"><img src="Images/J2.png" alt="Overview of J2"></div>
       <div class="body">
-        <div class="ptitle"><span class="tag">J2</span>Intrusion Detection in Blockchain Networks: Explainable Stacking Model with Adversarial Deep Learning and Privacy-Preserving Techniques</div>
+        <div class="ptitle"><span class="tag j">J2</span>Intrusion Detection in Blockchain Networks: Explainable Stacking Model with Adversarial Deep Learning and Privacy-Preserving Techniques</div>
         <div class="authors"><b>Kening Zhang</b>, Carman K. M. Lee, Yung Po Tsang*</div>
         <div class="venue">Computer Networks</div>
       </div>
@@ -332,7 +356,7 @@
     <div class="pub">
       <div class="thumb"><img src="Images/J3.png" alt="Overview of J3"></div>
       <div class="body">
-        <div class="ptitle"><span class="tag">J3</span>Integrating Large Language Models with Explainable Fuzzy Inference Systems for Trusty Steel Defect Detection</div>
+        <div class="ptitle"><span class="tag j">J3</span>Integrating Large Language Models with Explainable Fuzzy Inference Systems for Trusty Steel Defect Detection</div>
         <div class="authors"><b>Kening Zhang</b>, Yung Po Tsang, Carman K. M. Lee, C. H. Wu*</div>
         <div class="venue">Pattern Recognition Letters</div>
       </div>
@@ -341,7 +365,7 @@
     <div class="pub">
       <div class="thumb"><img src="Images/J4.png" alt="Overview of J4"></div>
       <div class="body">
-        <div class="ptitle"><span class="tag">J4</span>QHB-DA: A Quantum Hybrid Blockchain-based Data Authenticity Framework for Supply Chain in Industry 4.0</div>
+        <div class="ptitle"><span class="tag j">J4</span>QHB-DA: A Quantum Hybrid Blockchain-based Data Authenticity Framework for Supply Chain in Industry 4.0</div>
         <div class="authors"><b>Kening Zhang</b>, Carman K. M. Lee*, Yung Po Tsang</div>
         <div class="venue">IEEE Internet of Things Journal</div>
       </div>
@@ -350,7 +374,7 @@
     <div class="pub">
       <div class="thumb"><img src="Images/J5.png" alt="Overview of J5"></div>
       <div class="body">
-        <div class="ptitle"><span class="tag">J5</span>Dual-Offloading Resource Allocation for Integrated Blockchain and D2D-Based Digital Twin Systems: A Goal-Conditioned Reinforcement Learning Approach</div>
+        <div class="ptitle"><span class="tag j">J5</span>Dual-Offloading Resource Allocation for Integrated Blockchain and D2D-Based Digital Twin Systems: A Goal-Conditioned Reinforcement Learning Approach</div>
         <div class="authors"><b>Kening Zhang</b>, Carman K. M. Lee*, Yung Po Tsang</div>
         <div class="venue">IEEE Transactions on Cloud Computing</div>
       </div>
@@ -359,7 +383,7 @@
     <div class="pub">
       <div class="thumb"><img src="Images/J6.png" alt="Overview of J6"></div>
       <div class="body">
-        <div class="ptitle"><span class="tag">J6</span>Stateless Blockchain-Based Lightweight Identity Management Architecture for Industrial IoT Applications</div>
+        <div class="ptitle"><span class="tag j">J6</span>Stateless Blockchain-Based Lightweight Identity Management Architecture for Industrial IoT Applications</div>
         <div class="authors"><b>Kening Zhang</b>, Carman K. M. Lee*, Yung Po Tsang</div>
         <div class="venue">IEEE Transactions on Industrial Informatics</div>
       </div>
@@ -368,7 +392,7 @@
     <div class="pub">
       <div class="thumb"><img src="Images/J7.png" alt="Overview of J7"></div>
       <div class="body">
-        <div class="ptitle"><span class="tag">J7</span>On-Chain and Off-Chain Data Management for Blockchain–Internet of Things: A Multi-Agent Deep Reinforcement Learning Approach</div>
+        <div class="ptitle"><span class="tag j">J7</span>On-Chain and Off-Chain Data Management for Blockchain–Internet of Things: A Multi-Agent Deep Reinforcement Learning Approach</div>
         <div class="authors">Y. P. Tsang, C. K. M. Lee, <b>Kening Zhang</b>, C. H. Wu*, W. H. Ip</div>
         <div class="venue">Journal of Grid Computing 22, 16 (2024)</div>
       </div>
@@ -377,7 +401,7 @@
     <div class="pub">
       <div class="thumb"><img src="Images/C1.png" alt="Overview of C1"></div>
       <div class="body">
-        <div class="ptitle"><span class="tag">C1</span>A Reduced Mixed Representation Based Multi-Objective Evolutionary Algorithm for Large-Scale Overlapping Community Detection</div>
+        <div class="ptitle"><span class="tag c">C1</span>A Reduced Mixed Representation Based Multi-Objective Evolutionary Algorithm for Large-Scale Overlapping Community Detection</div>
         <div class="authors">Yongkang Luo†, <b>Kening Zhang</b>†, Haipeng Yang, Feng Liu, Shuai Luo, Lei Zhang*, Xiaoyan Sun</div>
         <div class="venue">2021 IEEE Congress on Evolutionary Computation (CEC), pp. 2435–2442</div>
       </div>
@@ -386,7 +410,7 @@
     <div class="pub">
       <div class="thumb"><img src="Images/C2.png" alt="Overview of C2"></div>
       <div class="body">
-        <div class="ptitle"><span class="tag">C2</span>Privacy-Preserving and Resilient Skyline Querying in Sharded Blockchain Networks for Web 3.0</div>
+        <div class="ptitle"><span class="tag c">C2</span>Privacy-Preserving and Resilient Skyline Querying in Sharded Blockchain Networks for Web 3.0</div>
         <div class="authors"><b>Kening Zhang</b>, Carman K. M. Lee, Yung Po Tsang*</div>
         <div class="venue">2025 International Conference on Database Systems for Advanced Applications (DASFAA)</div>
       </div>
