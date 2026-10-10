@@ -1,20 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Academic Profile | Research Portfolio</title>
-    <meta name="description" content="Academic research portfolio showcasing scholarly work and publications" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/assets/index-6U7VlNuQ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C6Id4bHB.css">
-    <link rel="stylesheet" href="/academic-override.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script src="navigation-inject.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kening Zhang (张珂宁)</title>
+  <meta name="description" content="Kening Zhang — Faculty Member. Research on blockchain and industrial applications, edge computing and distributed systems, and quantum information science.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #1f2328;
+      --muted: #57606a;
+      --accent: #1f4e79;      /* deep academic blue */
+      --link: #22598f;
+      --hairline: #d9dce1;
+      --paper: #ffffff;
+      --paper-alt: #f6f7f9;
+      --tag-bg: #eef1f4;
+      --maxw: 1040px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--text);
+      font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+      font-size: 16.5px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Navigation ---------- */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--hairline);
+      backdrop-filter: blur(6px);
+    }
+    nav .nav-inner {
+      max-width: var(--maxw); margin: 0 auto; padding: 10px 24px;
+      display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: baseline;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif; font-size: .9rem;
+    }
+    nav .brand { font-weight: 600; color: var(--text); margin-right: 8px; }
+    nav a { color: var(--muted); }
+    nav a:hover { color: var(--accent); text-decoration: none; }
+
+    /* ---------- Masthead ---------- */
+    header.masthead { padding: 44px 0 8px; }
+    header.masthead h1 {
+      margin: 0; font-size: 2.1rem; font-weight: 700; letter-spacing: .01em;
+    }
+    header.masthead .cn-name { color: var(--muted); font-weight: 400; font-size: 1.5rem; margin-left: 10px; }
+    header.masthead .role {
+      margin-top: 6px; font-size: 1.06rem; color: var(--accent); font-weight: 600;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    }
+    header.masthead .affil { margin-top: 2px; color: var(--muted); font-size: 1rem; }
+    header.masthead .email-line { margin-top: 4px; font-size: .98rem; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 30px 0 6px; scroll-margin-top: 64px; }
+    h2 {
+      font-size: 1.28rem; font-weight: 700; letter-spacing: .04em;
+      font-variant: small-caps; color: var(--text);
+      border-bottom: 1px solid var(--hairline);
+      padding-bottom: 6px; margin: 0 0 18px;
+    }
+
+    /* ---------- Top grid: photo + bio ---------- */
+    .top-grid { display: grid; grid-template-columns: 248px 1fr; gap: 34px; align-items: start; }
+    .side-photo img {
+      width: 100%; display: block; border-radius: 4px;
+      border: 1px solid var(--hairline);
+    }
+    .side-links { margin-top: 14px; font-size: .95rem; }
+    .side-links .row { padding: 3px 0; }
+    .side-links .label {
+      display: inline-block; width: 96px; color: var(--muted);
+      font-family: "Inter", "Segoe UI", Arial, sans-serif; font-size: .82rem; font-weight: 500;
+    }
+    .todo-note { color: #9a6700; font-family: "Inter", Arial, sans-serif; font-size: .78rem; }
+
+    .bio p { margin: 0 0 14px; text-align: justify; }
+    .bio p:last-child { margin-bottom: 0; }
+
+    /* ---------- News ---------- */
+    ul.news { list-style: none; margin: 0; padding: 0; }
+    ul.news li { padding: 5px 0 5px 118px; position: relative; }
+    ul.news .date {
+      position: absolute; left: 0; top: 5px; width: 104px; text-align: right;
+      color: var(--muted); font-family: "Inter", Arial, sans-serif; font-size: .82rem; font-weight: 500;
+    }
+
+    /* ---------- Research interests ---------- */
+    .interests { margin: 0; padding: 0; list-style: none; }
+    .interests li { margin: 0 0 12px; padding-left: 18px; position: relative; }
+    .interests li::before {
+      content: ""; position: absolute; left: 0; top: .62em;
+      width: 7px; height: 7px; background: var(--accent); border-radius: 50%;
+    }
+    .interests b { font-weight: 700; }
+
+    /* ---------- Education ---------- */
+    ul.edu { list-style: none; margin: 0; padding: 0; }
+    ul.edu li { padding: 7px 0; border-bottom: 1px dashed var(--hairline); }
+    ul.edu li:last-child { border-bottom: none; }
+    .edu .deg { font-weight: 700; }
+
+    /* ---------- Publications ---------- */
+    .pub { display: flex; gap: 18px; margin-bottom: 20px; align-items: flex-start; }
+    .pub .thumb { flex: none; width: 176px; }
+    .pub .thumb img {
+      width: 100%; display: block; border: 1px solid var(--hairline); border-radius: 3px;
+    }
+    .pub .body { flex: 1; }
+    .pub .ptitle { font-weight: 700; }
+    .pub .authors { margin-top: 2px; }
+    .pub .venue { margin-top: 2px; font-style: italic; color: #3a3f45; }
+    .pub .tag {
+      display: inline-block; margin-right: 8px; padding: 1px 7px; vertical-align: 2px;
+      background: var(--tag-bg); color: var(--muted); border-radius: 3px;
+      font-family: "Inter", Arial, sans-serif; font-size: .74rem; font-weight: 600;
+    }
+    .pub .links { margin-top: 4px; font-size: .9rem; }
+    .pub-note { color: var(--muted); font-size: .88rem; margin-top: 4px; }
+
+    /* ---------- Simple text sections ---------- */
+    .plain p { margin: 0 0 12px; }
+    ul.awards { margin: 0; padding-left: 22px; }
+    ul.awards li { margin-bottom: 7px; }
+    ul.services { margin: 0; padding: 0; list-style: none; }
+    ul.services li { padding: 4px 0; }
+    ul.services .cat { font-weight: 700; }
+
+    /* ---------- Contact ---------- */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .contact-grid h3 {
+      margin: 0 0 6px; font-size: 1rem; font-family: "Inter", Arial, sans-serif; font-weight: 600;
+    }
+    .contact-grid p { margin: 0; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 40px; border-top: 1px solid var(--hairline);
+      padding: 18px 0 34px; color: var(--muted);
+      font-family: "Inter", Arial, sans-serif; font-size: .82rem;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 820px) {
+      .top-grid { grid-template-columns: 1fr; }
+      .side-photo { max-width: 300px; }
+      ul.news li { padding-left: 0; padding-top: 3px; }
+      ul.news .date { position: static; display: block; width: auto; text-align: left; margin-bottom: 1px; }
+      .pub { flex-direction: column; }
+      .pub .thumb { width: 100%; max-width: 420px; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="brand">Kening Zhang</span>
+    <a href="#about">About</a>
+    <a href="#news">News</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#students">Prospective Students</a>
+    <a href="#services">Services</a>
+    <a href="#awards">Awards</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="masthead container">
+  <h1>Kening Zhang<span class="cn-name">张珂宁</span></h1>
+  <!-- ✏️ TODO: 教职定下来后,把下面两行改成真实信息,例如:
+       <p class="role">Assistant Professor</p>
+       <p class="affil">Department of XXX, XXX University</p>          -->
+  <p class="role">Incoming Faculty Member</p>
+  <p class="affil">Ph.D., The Hong Kong Polytechnic University</p>
+  <p class="email-line">
+    <a href="mailto:keningcs.zhang@connect.polyu.hk">keningcs.zhang@connect.polyu.hk</a>
+  </p>
+</header>
+
+<main class="container">
+
+  <!-- ================= About ================= -->
+  <section id="about">
+    <div class="top-grid">
+      <div class="side-photo">
+        <img src="Photo.jpg" alt="Photo of Kening Zhang">
+        <div class="side-links">
+          <div class="row"><span class="label">Email</span><a href="mailto:keningcs.zhang@connect.polyu.hk">keningcs.zhang@connect.polyu.hk</a></div>
+          <!-- ✏️ TODO: 有了学术主页链接后,把下面的 "(to be added)" 换成 <a href="链接">Google Scholar</a> 等 -->
+          <div class="row"><span class="label">Google Scholar</span><span class="todo-note">link to be added</span></div>
+          <div class="row"><span class="label">ORCID</span><span class="todo-note">link to be added</span></div>
+          <div class="row"><span class="label">LinkedIn</span><span class="todo-note">link to be added</span></div>
+          <div class="row"><span class="label">CV</span><span class="todo-note">to be added</span></div>
+        </div>
+      </div>
+
+      <div class="bio">
+        <!-- ✏️ TODO: 教职确定后,更新第一段中的 [University Name] / [Department] / 时间 -->
+        <p>
+          I will be joining <strong>[University Name]</strong> as a faculty member in
+          <strong>[Department]</strong> starting <strong>[Month, Year]</strong>.
+          I received my Ph.D. training at the
+          <strong>Department of Industrial and Systems Engineering</strong>,
+          The Hong Kong Polytechnic University, where my research focused on
+          blockchain-enabled industrial applications, resource allocation in edge
+          computing and distributed systems, and quantum information science.
+        </p>
+        <p>
+          My work has been published in leading venues including
+          <em>IEEE Transactions on Vehicular Technology</em>,
+          <em>IEEE Internet of Things Journal</em>,
+          <em>IEEE Transactions on Cloud Computing</em>,
+          <em>IEEE Transactions on Industrial Informatics</em>,
+          <em>Computer Networks</em>, and
+          <em>Pattern Recognition Letters</em>.
+        </p>
+        <p>
+          I am always happy to hear from students and collaborators with shared
+          research interests — please see the <a href="#students">Prospective Students</a>
+          section, or simply drop me an email.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= News ================= -->
+  <section id="news">
+    <h2>News</h2>
+    <ul class="news">
+      <!-- ✏️ TODO: 教职定下来后,替换下面第一条的占位内容 -->
+      <li><span class="date">Oct 2026</span>
+        I have accepted a faculty offer and will join <strong>[University Name]</strong>
+        as <strong>[Position Title]</strong> starting <strong>[Month, Year]</strong>.
+      </li>
+      <li><span class="date">Oct 2026</span>
+        Personal academic homepage redesigned.
+      </li>
+    </ul>
+  </section>
+
+  <!-- ================= Research ================= -->
+  <section id="research">
+    <h2>Research Interests</h2>
+    <ul class="interests">
+      <li><b>Blockchain and Industrial Applications.</b>
+        Identity management and data authenticity using blockchain technology in
+        supply chains and industrial IoT.</li>
+      <li><b>Edge Computing and Distributed Systems.</b>
+        Resource allocation and optimization in edge computing and distributed systems.</li>
+      <li><b>Quantum Information Science.</b>
+        Integration of quantum communication and quantum computing.</li>
+    </ul>
+  </section>
+
+  <!-- ================= Education ================= -->
+  <section id="education">
+    <h2>Education</h2>
+    <ul class="edu">
+      <li><span class="deg">Ph.D.</span> — Department of Industrial and Systems Engineering,
+        The Hong Kong Polytechnic University, Hong Kong</li>
+      <li><span class="deg">M.Sc.</span> — Department of Computing,
+        The Hong Kong Polytechnic University, Hong Kong</li>
+      <li><span class="deg">B.Eng.</span> — School of Computer Science and Technology,
+        Anhui University, Hefei, China</li>
+    </ul>
+  </section>
+
+  <!-- ================= Publications ================= -->
+  <section id="publications">
+    <h2>Publications</h2>
+
+    <div class="pub">
+      <div class="thumb"><img src="Images/J1.png" alt="Overview of J1"></div>
+      <div class="body">
+        <div class="ptitle"><span class="tag">J1</span>Variational Quantum Reinforcement Learning for Joint Resource Allocation of Blockchain-based Vehicular Edge Computing and Quantum Internet</div>
+        <div class="authors"><b>Kening Zhang</b>, Carman K. M. Lee, Yung Po Tsang*, Chun Ho Wu</div>
+        <div class="venue">IEEE Transactions on Vehicular Technology</div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="thumb"><img src="Images/J2.png" alt="Overview of J2"></div>
+      <div class="body">
+        <div class="ptitle"><span class="tag">J2</span>Intrusion Detection in Blockchain Networks: Explainable Stacking Model with Adversarial Deep Learning and Privacy-Preserving Techniques</div>
+        <div class="authors"><b>Kening Zhang</b>, Carman K. M. Lee, Yung Po Tsang*</div>
+        <div class="venue">Computer Networks</div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="thumb"><img src="Images/J3.png" alt="Overview of J3"></div>
+      <div class="body">
+        <div class="ptitle"><span class="tag">J3</span>Integrating Large Language Models with Explainable Fuzzy Inference Systems for Trusty Steel Defect Detection</div>
+        <div class="authors"><b>Kening Zhang</b>, Yung Po Tsang, Carman K. M. Lee, C. H. Wu*</div>
+        <div class="venue">Pattern Recognition Letters</div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="thumb"><img src="Images/J4.png" alt="Overview of J4"></div>
+      <div class="body">
+        <div class="ptitle"><span class="tag">J4</span>QHB-DA: A Quantum Hybrid Blockchain-based Data Authenticity Framework for Supply Chain in Industry 4.0</div>
+        <div class="authors"><b>Kening Zhang</b>, Carman K. M. Lee*, Yung Po Tsang</div>
+        <div class="venue">IEEE Internet of Things Journal</div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="thumb"><img src="Images/J5.png" alt="Overview of J5"></div>
+      <div class="body">
+        <div class="ptitle"><span class="tag">J5</span>Dual-Offloading Resource Allocation for Integrated Blockchain and D2D-Based Digital Twin Systems: A Goal-Conditioned Reinforcement Learning Approach</div>
+        <div class="authors"><b>Kening Zhang</b>, Carman K. M. Lee*, Yung Po Tsang</div>
+        <div class="venue">IEEE Transactions on Cloud Computing</div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="thumb"><img src="Images/J6.png" alt="Overview of J6"></div>
+      <div class="body">
+        <div class="ptitle"><span class="tag">J6</span>Stateless Blockchain-Based Lightweight Identity Management Architecture for Industrial IoT Applications</div>
+        <div class="authors"><b>Kening Zhang</b>, Carman K. M. Lee*, Yung Po Tsang</div>
+        <div class="venue">IEEE Transactions on Industrial Informatics</div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="thumb"><img src="Images/J7.png" alt="Overview of J7"></div>
+      <div class="body">
+        <div class="ptitle"><span class="tag">J7</span>On-Chain and Off-Chain Data Management for Blockchain–Internet of Things: A Multi-Agent Deep Reinforcement Learning Approach</div>
+        <div class="authors">Y. P. Tsang, C. K. M. Lee, <b>Kening Zhang</b>, C. H. Wu*, W. H. Ip</div>
+        <div class="venue">Journal of Grid Computing 22, 16 (2024)</div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="thumb"><img src="Images/C1.png" alt="Overview of C1"></div>
+      <div class="body">
+        <div class="ptitle"><span class="tag">C1</span>A Reduced Mixed Representation Based Multi-Objective Evolutionary Algorithm for Large-Scale Overlapping Community Detection</div>
+        <div class="authors">Yongkang Luo†, <b>Kening Zhang</b>†, Haipeng Yang, Feng Liu, Shuai Luo, Lei Zhang*, Xiaoyan Sun</div>
+        <div class="venue">2021 IEEE Congress on Evolutionary Computation (CEC), pp. 2435–2442</div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="thumb"><img src="Images/C2.png" alt="Overview of C2"></div>
+      <div class="body">
+        <div class="ptitle"><span class="tag">C2</span>Privacy-Preserving and Resilient Skyline Querying in Sharded Blockchain Networks for Web 3.0</div>
+        <div class="authors"><b>Kening Zhang</b>, Carman K. M. Lee, Yung Po Tsang*</div>
+        <div class="venue">2025 International Conference on Database Systems for Advanced Applications (DASFAA)</div>
+      </div>
+    </div>
+
+    <p class="pub-note">† Authors contributed equally to this work. &nbsp; * Corresponding author.</p>
+    <!-- 提示: 以后要给论文加链接,在 .venue 后面加一行,例如:
+         <div class="links"><a href="https://doi.org/xxxx">[DOI]</a> <a href="pdf地址">[PDF]</a></div>  -->
+  </section>
+
+  <!-- ================= Teaching ================= -->
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <div class="plain">
+      <!-- ✏️ TODO: 入职后把课程信息填在这里,格式参考:
+           <ul class="edu">
+             <li><span class="deg">Fall 2027</span> — XXXX (Undergraduate), XXX University</li>
+           </ul>                                                                       -->
+      <p>Course information will be updated after I officially start my faculty position.</p>
+    </div>
+  </section>
+
+  <!-- ================= Prospective Students ================= -->
+  <section id="students">
+    <h2>Prospective Students</h2>
+    <div class="plain">
+      <p>
+        I am always looking for self-motivated students (Ph.D., M.Sc., and research
+        assistants) interested in <strong>blockchain and industrial applications</strong>,
+        <strong>edge computing and distributed systems</strong>, and
+        <strong>quantum information science</strong>. Candidates with backgrounds in
+        computer science, industrial engineering, or related disciplines are encouraged
+        to apply.
+      </p>
+      <p>
+        <!-- ✏️ TODO: 入职后按学校要求更新招生说明与申请方式 -->
+        If you are interested, please email me your CV and transcripts with the subject
+        line <em>“Prospective Student Application”</em>. Detailed recruitment plans will
+        be announced once my faculty position officially begins.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= Academic Services ================= -->
+  <section id="services">
+    <h2>Academic Services</h2>
+    <div class="plain">
+      <!-- ✏️ TODO: 按实际情况填写,格式参考:
+           <ul class="services">
+             <li><span class="cat">Journal Reviewer:</span> IEEE Transactions on ...</li>
+             <li><span class="cat">Conference Reviewer:</span> ...</li>
+           </ul>                                                          -->
+      <p>Reviewing and program committee records will be added soon.</p>
+    </div>
+  </section>
+
+  <!-- ================= Awards ================= -->
+  <section id="awards">
+    <h2>Honors &amp; Awards</h2>
+    <ul class="awards">
+      <li>National Encouragement Scholarship</li>
+      <li>Meritorious Award, Mathematical Contest in Modeling (top 8%)</li>
+      <li>Second Prize, Academic Science and Technology Award</li>
+      <li>Third-class Scholarship for Excellent Study</li>
+      <li>Third Prize, 13th International Water Robot Competition</li>
+      <li>Honorable Mention, School-level Mathematical Contest in Modeling, Anhui University</li>
+    </ul>
+  </section>
+
+  <!-- ================= Contact ================= -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <div>
+        <h3>Email</h3>
+        <p><a href="mailto:keningcs.zhang@connect.polyu.hk">keningcs.zhang@connect.polyu.hk</a></p>
+      </div>
+      <div>
+        <h3>Address</h3>
+        <!-- ✏️ TODO: 入职后更新为新单位地址 -->
+        <p>DE407, Lui Che Woo Building, The Hong Kong Polytechnic University,<br>
+        Hung Hom, Kowloon, Hong Kong</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 Kening Zhang &nbsp;·&nbsp; Last updated: October 2026
+  </div>
+</footer>
+
+</body>
 </html>
